@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: djs-consumer-depart  #微服务对外暴露的名称
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/  #指定Eureka服务注册中心
+
+server:
+  port: 8082
+
+feign:
+  hystrix:
+    enabled: true     #开启feign对hystrix的支持
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 5000    #设置服务熔断时限，默认为5000毫秒
